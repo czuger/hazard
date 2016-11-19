@@ -109,8 +109,8 @@ Examples :
     
     # Should you have the Elemental Adept feat, which mean that you treat all 1 as 2
     # If you cast a fireball, this will do the trick : 
-    >> Hazard.s6d6.rolls.map{ |d| d == 1 ? 2 : d }.reduce(:+)
-    => 13
+    >> Hazard.s8d6.rolls.map{ |d| d == 1 ? 2 : d }.reduce(:+)
+    => 24
                     
     
 ## Development
