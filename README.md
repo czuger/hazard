@@ -51,15 +51,16 @@ Roll multiple dices
 Roll dices but get the detail
          
     # All results in this section and the following are random examples
-    
-    >> Hazard.s2d6
-    #<RollResult:0x007f62e55a0010 @rolls=[1, 6], @result=7>
-    
+      
+    >> Hazard.s2d6.rolls
+    => [1, 6]     
+          
     >> Hazard.s2d6.result
     => 7
     
-    >> Hazard.s2d6.rolls
-    => [1, 6]       
+    # Under the hood
+    >> Hazard.s2d6
+    => #<RollResult:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
 Some real cases
          
