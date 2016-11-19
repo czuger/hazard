@@ -39,10 +39,10 @@ Examples :
     >> Hazard.d6
     => 2
     
-    Hazard.d8
+    >> Hazard.d8
     => 4
      
-    Hazard.d42
+    >> Hazard.d42
     => 38
      
     
@@ -53,13 +53,13 @@ Examples :
 
 Examples : 
    
-    Hazard.r2d6
+    >> Hazard.r2d6
      => 4
      
-    Hazard.r4d8
+    >> Hazard.r4d8
      => 12
      
-    Hazard.r48d42
+    >> Hazard.r48d42
      => 356
          
          
@@ -96,23 +96,19 @@ Examples :
     
     # You may want to roll 2 d20 dice with advantage (take the greatest)
     # This will rolls 2 d20, get the rolls and get the best of them
-    
     >> Hazard.s2d20.rolls.max 
     => 19
     
     # Obviously a disadvantage is
-    
     >> Hazard.s2d20.rolls.min
     => 13
     
     # Maybe you want to roll with an advantage and make the check (because you are as lazy as me)
-    
     >> Hazard.s2d20.rolls.max > 12
     => true or false
     
     # Should you have the Elemental Adept feat, which mean that you treat all 1 as 2
     # If you cast a fireball, this will do the trick : 
-    
     >> Hazard.s6d6.rolls.map{ |d| d == 1 ? 2 : d }.reduce(:+)
     => 13
                     
