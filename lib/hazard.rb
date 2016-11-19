@@ -27,13 +27,13 @@ class Hazard
     dice_type = dice_match[2].to_i
 
     # Rolls the dice
-    rolls = (1..dice_amount).map{ Kernel.rand( 1..dice_type ) }
+    rolls = ( 1..dice_amount ).map{ Kernel.rand( 1..dice_type ) }
 
     # Unless splitted_result was requested, return the sum of the rolled dice
     return rolls.reduce(:+) unless splitted_result
 
     # Return a RolledDice otherwise
-    RolledDice.new(rolls )
+    RolledDice.new( rolls )
 
   end
 
