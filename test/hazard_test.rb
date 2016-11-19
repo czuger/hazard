@@ -2,14 +2,6 @@ require 'test_helper'
 
 class HazardTest < Minitest::Test
 
-  def test_that_it_has_a_version_number
-    refute_nil ::Hazard::VERSION
-  end
-
-  def test_it_does_something_useful
-    assert false
-  end
-
   def test_dices
     Kernel.stubs( :rand ).returns( 6 )
 

@@ -4,7 +4,7 @@ class Hazard
 
     method_name = method_name.to_s
 
-    if method_name.first == 's'
+    if method_name[0] == 's'
       method_name = method_name[1..-1]
       splitted_result = true
     end
@@ -19,7 +19,7 @@ class Hazard
     return (1..dices_amount).inject(0) { |sum, _| sum + Kernel.rand( 1..dice_type ) } unless splitted_result
 
     splitted_result_map = (1..dices_amount).map{ Kernel.rand( 1..dice_type ) }
-    { result: splitted_result_map.sum, rolls: splitted_result_map }
+    { result: splitted_result_map.reduce(:+), rolls: splitted_result_map }
   end
 
 end
