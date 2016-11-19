@@ -28,7 +28,7 @@ If needed :
 
 ## Usage
 
-Roll a simple dice
+**Roll a simple dice**
 
     >> Hazard.d<n>        # where n is an number
     => Roll a n-sided dice
@@ -45,7 +45,7 @@ Examples :
     => 38
      
     
-Roll multiple dices
+**Roll multiple dices**
 
     >> Hazard.r<m>d<n>    # where m and n are numbers
     => Roll m n-sided dices and return the sum
@@ -62,7 +62,7 @@ Examples :
      => 356
          
          
-Roll dices but get the detail
+**Roll dices and get the details**
 
     >> Hazard.s<m>d<n>    # where m and n are numbers
     => Roll m n-sided dices and return a RolledDices object
@@ -79,7 +79,7 @@ Examples :
     >> Hazard.s2d6
     => #<RolledDices:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
-Some real cases
+**Some real cases**
          
     # Assuming you are playing DD Next
     
