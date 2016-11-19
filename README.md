@@ -1,6 +1,7 @@
 # Hazard
 
 [![Gem Version](https://badge.fury.io/rb/hazard.svg)](https://badge.fury.io/rb/hazard)
+[![Build Status](https://travis-ci.org/czuger/hazard.svg?branch=master)](https://travis-ci.org/czuger/hazard)
 [![Code Climate](https://codeclimate.com/github/czuger/hazard/badges/gpa.svg)](https://codeclimate.com/github/czuger/hazard)
 [![Test Coverage](https://codeclimate.com/github/czuger/hazard/badges/coverage.svg)](https://codeclimate.com/github/czuger/hazard/coverage)
 
