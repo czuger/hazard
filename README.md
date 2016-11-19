@@ -1,5 +1,7 @@
 # Hazard
 
+[![Gem Version](https://badge.fury.io/rb/hazard.svg)](https://badge.fury.io/rb/hazard)
+
 Hazard is a very simple dices library for ruby (see [usage](#usage)).
 
 ## Installation
