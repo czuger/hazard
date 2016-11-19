@@ -74,6 +74,16 @@ Examples :
     => [1, 6]     
           
     >> Hazard.s2d6.result
+    => 3
+    
+    # Caution, each time you call Hazard it will reroll the dices
+    # If you want to work on result and rolls, save them in a variable    
+    >> roll = Hazard.s2d6
+    
+    >> roll.rolls
+    => [1, 6]
+    
+    >> roll.result
     => 7
     
     # Under the hood
