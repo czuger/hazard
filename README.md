@@ -1,6 +1,6 @@
 # Hazard
 
-Hazard is a very simple dices library for ruby (see [usage](#usage) ).
+Hazard is a very simple dices library for ruby (see [usage](##usage) ).
 
 ## Installation
 
