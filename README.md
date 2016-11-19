@@ -26,32 +26,45 @@ If needed :
 
 Roll a simple dice
 
+    >> Hazard.d<n>        # where n is an number
+    => Roll a n-sided dice
+
+Examples : 
+
     >> Hazard.d6
-    => A number between 1 and 6
+    => 2
     
     Hazard.d8
-     => A number between 1 and 8
+    => 4
      
     Hazard.d42
-     => A number between 1 and 42
+    => 38
      
     
 Roll multiple dices
+
+    >> Hazard.r<m>d<n>    # where m and n are numbers
+    => Roll m n-sided dices and return the sum
+
+Examples : 
    
     Hazard.r2d6
-     => A number between 2 and 12
+     => 4
      
     Hazard.r4d8
-     => A number between 4 and 32
+     => 12
      
     Hazard.r48d42
-     => A number between 48 and 2016
+     => 356
          
          
 Roll dices but get the detail
+
+    >> Hazard.s<m>d<n>    # where m and n are numbers
+    => Roll m n-sided dices and return a RolledDices object
+
+Examples : 
          
-    # All results in this section and the following are random examples
-      
     >> Hazard.s2d6.rolls
     => [1, 6]     
           
@@ -60,7 +73,7 @@ Roll dices but get the detail
     
     # Under the hood
     >> Hazard.s2d6
-    => #<RollResult:0x007f62e55a0010 @rolls=[1, 6], @result=7>
+    => #<RolledDices:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
 Some real cases
          
