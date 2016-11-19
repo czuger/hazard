@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
 
   spec.name          = 'hazard'
   spec.version       = Hazard::VERSION
-  spec.authors       = ['ced']
+  spec.authors       = ['Cédric ZUGER']
   spec.email         = ['zuger.cedric@gmail.com']
 
   spec.summary       = 'Dice library for ruby'
