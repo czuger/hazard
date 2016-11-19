@@ -54,13 +54,13 @@ Examples :
 Examples : 
    
     >> Hazard.r2d6
-     => 4
+    => 4
      
     >> Hazard.r4d8
-     => 12
+    => 12
      
     >> Hazard.r48d42
-     => 356
+    => 356
          
          
 **Roll dice and get the details**
