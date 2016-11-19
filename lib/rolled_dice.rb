@@ -1,4 +1,4 @@
-class RolledDices
+class RolledDice
 
   attr_reader :result, :rolls
 
@@ -8,8 +8,8 @@ class RolledDices
   end
 
   # Required for tests
-  def ==( rolled_dices )
-    @rolls == rolled_dices.rolls && @result == rolled_dices.result
+  def ==( rolled_dice )
+    @rolls == rolled_dice.rolls && @result == rolled_dice.result
   end
 
 end

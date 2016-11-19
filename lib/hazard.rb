@@ -1,4 +1,4 @@
-require_relative 'rolled_dices'
+require_relative 'rolled_dice'
 
 class Hazard
 
@@ -14,26 +14,26 @@ class Hazard
       splitted_result = true
     end
 
-    # Parse the method name to get how many dices and what size of dices was required
-    dices_match = method_name.to_s.match( /(\d*)d(\d+)/ )
+    # Parse the method name to get how many dice and what size of dice was required
+    dice_match = method_name.to_s.match( /(\d*)d(\d+)/ )
     # Raise an error if match fail
-    raise "Method mising : #{method_name}" unless dices_match
+    raise "Method mising : #{method_name}" unless dice_match
 
-    # Get the dices amount
-    dices_amount = dices_match[1].to_i
+    # Get the dice amount
+    dice_amount = dice_match[1].to_i
     # If no amount is given then the amount is 1
-    dices_amount = 1 if dices_amount == 0
-    # Get the type of dices
-    dice_type = dices_match[2].to_i
+    dice_amount = 1 if dice_amount == 0
+    # Get the type of dice
+    dice_type = dice_match[2].to_i
 
-    # Rolls the dices
-    rolls = (1..dices_amount).map{ Kernel.rand( 1..dice_type ) }
+    # Rolls the dice
+    rolls = (1..dice_amount).map{ Kernel.rand( 1..dice_type ) }
 
-    # Unless splitted_result was requested, return the sum of the rolled dices
+    # Unless splitted_result was requested, return the sum of the rolled dice
     return rolls.reduce(:+) unless splitted_result
 
-    # Return a RolledDices otherwise
-    RolledDices.new( rolls )
+    # Return a RolledDice otherwise
+    RolledDice.new(rolls )
 
   end
 

@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/czuger/hazard/badges/gpa.svg)](https://codeclimate.com/github/czuger/hazard)
 [![Test Coverage](https://codeclimate.com/github/czuger/hazard/badges/coverage.svg)](https://codeclimate.com/github/czuger/hazard/coverage)
 
-Hazard is a very simple dices library for ruby (see [usage](#usage)).
+Hazard is a very simple dice library for ruby (see [usage](#usage)).
 
 ## Installation
 
@@ -29,10 +29,10 @@ If needed :
 
 ## Usage
 
-**Roll a simple dice**
+**Roll a simple die**
 
     >> Hazard.d<n>        # where n is an number
-    => Roll a n-sided dice
+    => Roll a n-sided die
 
 Examples : 
 
@@ -46,10 +46,10 @@ Examples :
     => 38
      
     
-**Roll multiple dices**
+**Roll multiple dice**
 
     >> Hazard.r<m>d<n>    # where m and n are numbers
-    => Roll m n-sided dices and return the sum
+    => Roll m n-sided dice and return the sum
 
 Examples : 
    
@@ -63,10 +63,10 @@ Examples :
      => 356
          
          
-**Roll dices and get the details**
+**Roll dice and get the details**
 
     >> Hazard.s<m>d<n>    # where m and n are numbers
-    => Roll m n-sided dices and return a RolledDices object
+    => Roll m n-sided dice and return a RolledDice object
 
 Examples : 
          
@@ -76,7 +76,7 @@ Examples :
     >> Hazard.s2d6.result
     => 3
     
-    # Caution, each time you call Hazard it will reroll the dices
+    # Caution, each time you call Hazard it will reroll the dice
     # If you want to work on result and rolls, save them in a variable    
     >> roll = Hazard.s2d6
     
@@ -88,13 +88,13 @@ Examples :
     
     # Under the hood
     >> Hazard.s2d6
-    => #<RolledDices:0x007f62e55a0010 @rolls=[1, 6], @result=7>
+    => #<RolledDice:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
 **Some real cases**
          
     # Assuming you are playing DD Next
     
-    # You may want to roll 2 d20 dices with advantage (take the greatest)
+    # You may want to roll 2 d20 dice with advantage (take the greatest)
     # This will rolls 2 d20, get the rolls and get the best of them
     
     >> Hazard.s2d20.rolls.max 

@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['ced']
   spec.email         = ['zuger.cedric@gmail.com']
 
-  spec.summary       = 'Dices library for ruby'
-  spec.description   = 'A very simple dices library for ruby'
+  spec.summary       = 'Dice library for ruby'
+  spec.description   = 'A very simple dice library for ruby'
   spec.homepage      = 'https://github.com/czuger/hazard'
   spec.license       = 'MIT'
 
