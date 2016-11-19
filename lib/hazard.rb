@@ -1,3 +1,11 @@
+class RollResult
+  attr_reader :result, :rolls
+  def initialize( rolls )
+    @rolls = rolls
+    @result = rolls.reduce(:+)
+  end
+end
+
 class Hazard
 
   def self.method_missing( method_name )
@@ -19,7 +27,8 @@ class Hazard
     return (1..dices_amount).inject(0) { |sum, _| sum + Kernel.rand( 1..dice_type ) } unless splitted_result
 
     splitted_result_map = (1..dices_amount).map{ Kernel.rand( 1..dice_type ) }
-    { result: splitted_result_map.reduce(:+), rolls: splitted_result_map }
+    RollResult.new( splitted_result_map )
+
   end
 
 end
