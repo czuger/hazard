@@ -1,3 +1,3 @@
-module Hazard
-  VERSION = '1.0.0'
+class Hazard
+  VERSION = '1.0.1'
 end
