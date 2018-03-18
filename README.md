@@ -61,7 +61,12 @@ Examples :
      
     >> Hazard.r48d42
     => 356
-         
+    
+    # You can also use Hazard.m<m>d<n>    
+    >> Hazard.m2d6
+    => 4    
+    
+        
          
 **Roll dice and get the details**
 

@@ -10,6 +10,7 @@ class HazardTest < Minitest::Test
 
     assert_equal 12, Hazard.r2d6
     assert_equal 12, Hazard._2d6
+    assert_equal 12, Hazard.m2d6
 
     assert_equal RolledDice.new([6, 6 ] ), Hazard.s2d6
 
