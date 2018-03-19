@@ -64,10 +64,13 @@ Examples :
     
     # You can also use Hazard.m<m>d<n>    
     >> Hazard.m2d6
-    => 4    
+    => 6    
+    
+    # Or Hazard.d<m>d<n>    
+    >> Hazard.d2d6
+    => 8      
     
         
-         
 **Roll dice and get the details**
 
     >> Hazard.s<m>d<n>    # where m and n are numbers
