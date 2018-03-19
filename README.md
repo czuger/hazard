@@ -50,6 +50,8 @@ Examples :
 
     >> Hazard.r<m>d<n>    # where m and n are numbers
     => Roll m n-sided dice and return the sum
+    # You can also use Hazard.m<m>d<n>         
+    # Or Hazard.d<m>d<n>    
 
 Examples : 
    
@@ -62,11 +64,9 @@ Examples :
     >> Hazard.r48d42
     => 356
     
-    # You can also use Hazard.m<m>d<n>    
     >> Hazard.m2d6
     => 6    
-    
-    # Or Hazard.d<m>d<n>    
+     
     >> Hazard.d2d6
     => 8      
     
