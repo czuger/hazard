@@ -47,8 +47,19 @@ class HazardTest < Minitest::Test
     end
   end
 
-  def test_statistics
+  def test_three_element_table
 
+    Kernel.stubs( :rand ).returns( 1 )
+    assert_equal :foo, WeightedTable.from_weighted_table( [ [ 3, :foo ], [ 1, :bar ], [ 1, :foobar ] ] ).sample
+    assert_equal :foo, WeightedTable.from_flat_table(  [ :foo, :foo, :foo, :bar, :foobar ] ).sample
+
+    Kernel.stubs( :rand ).returns( 5 )
+    assert_equal :foobar, WeightedTable.from_weighted_table( [ [ 3, :foo ], [ 1, :bar ], [ 1, :foobar ] ] ).sample
+    assert_equal :foobar, WeightedTable.from_flat_table(  [ :foo, :foo, :foo, :bar, :foobar ] ).sample
+
+  end
+
+  def test_statistics
     wt = WeightedTable.from_weighted_table [ [ 2, :foo ], [ 1, :bar ] ]
     results = { foo: 0, bar: 0 }
 
