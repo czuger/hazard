@@ -27,7 +27,7 @@ If needed :
 
     $ require 'hazard'  
 
-## Usage
+## Basic Usage
 
 ### Roll a simple die
 
@@ -72,6 +72,7 @@ Examples :
     >> Hazard.d2d6
     => 8      
     
+## Advanced Usage
         
 ### Roll dice and get the details
 
@@ -121,9 +122,42 @@ Examples :
     # If you cast a fireball, this will do the trick : 
     >> Hazard.s8d6.rolls.map{ |d| d == 1 ? 2 : d }.reduce(:+)
     => 24   
-                    
-###                     
+        
+## Weighted Tables
 
+Weighted tables are object that allow to get weighted random. 
+Example : if you have two time foo and one time bar in your table.
+ 
+### If you have the weights
+
+    # You can create a WeightedTable object then load it with your data 
+    >> wt = WeightedTable.new.from_weighted_table( [ 2, :foo ], [ 1, :bar ] ]
+    
+    # Then you can get samples from this table
+    >> wt.sample
+    
+    # This ensure that you will get 66% foo and 33% bar
+    
+    # Note that you have to instantiate your object before loading it.
+    
+### If you don't have the weights (ore are to lazy to get them)
+    
+    # You can create your WeightedTable and let it compute the weights
+    >> wt = WeightedTable.new.from_flat_table( :foo, :foo, :bar ]
+    
+    # Then you can get samples from this table
+    >> wt.sample
+    
+    # This ensure that you will get 66% foo and 33% bar
+    
+### Saving and loading
+    
+    # You can save your builded table for future usage
+    >> wt.to_file( filename )
+    
+    # And load it
+    >> wt = WeightedTable.from_file( filename )   
+                                      
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/czuger/hazard. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
