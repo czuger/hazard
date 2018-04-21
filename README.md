@@ -5,7 +5,10 @@
 [![Code Climate](https://codeclimate.com/github/czuger/hazard/badges/gpa.svg)](https://codeclimate.com/github/czuger/hazard)
 [![Test Coverage](https://codeclimate.com/github/czuger/hazard/badges/coverage.svg)](https://codeclimate.com/github/czuger/hazard/coverage)
 
-Hazard is a very simple dice library for ruby.
+Hazard is a very simple dice library for ruby that allows you to : 
+* Roll dice and get the sum
+* Roll dice and work with the detail
+* Random pick elements from weighted lists
 
 1. [Installation](#installation)
 1. [Basic Usage](#basic-usage)
@@ -19,8 +22,6 @@ Hazard is a very simple dice library for ruby.
     1. [If you don't have the weights (or are to lazy to get them)](#if-you-dont-have-the-weights-or-are-to-lazy-to-get-them)
     1. [Saving and loading](#saving-and-loading)    
     
-Roll dice and get the details
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -117,7 +118,7 @@ Examples :
     
 ### Some real cases
          
-    # Assuming you are playing DD Next
+Assuming you are playing DD Next
     
     # You may want to roll 2 d20 dice with advantage (take the greatest)
     # This will rolls 2 d20, get the rolls and get the best of them
@@ -144,26 +145,33 @@ Example : if you have two time foo and one time bar in your table.
  
 ### If you have the weights
 
-    # You can create a WeightedTable object then load it with your data 
-    >> wt = WeightedTable.new.from_weighted_table( [ 2, :foo ], [ 1, :bar ] ]
+    >> wt = WeightedTable.from_weighted_table( [ <weight1>, <object1> ], [ <weight2>, <object2> ], ... ]
+    # Create a weighted table storing objects according to theire weights
     
-    # Then you can get samples from this table
     >> wt.sample
+    # Return weighted random object
     
+Examples : 
+
+    >> wt = WeightedTable.new.from_weighted_table( [ 2, :foo ], [ 1, :bar ] ]
+    >> wt.sample
     # This ensure that you will get 66% foo and 33% bar
     
-    # Note that you have to instantiate your object before loading it.
     
 ### If you don't have the weights (or are to lazy to get them)
     
-    # You can create your WeightedTable and let it compute the weights
-    >> wt = WeightedTable.new.from_flat_table( :foo, :foo, :bar ]
+    >> wt = WeightedTable.from_flat_table( <object1>, <object1>, <object2>, ... ]
+    # Create a weighted table storing objects computing the weight of the objects according to theire occurences
     
-    # Then you can get samples from this table
     >> wt.sample
-    
+    # Return weighted random object
+        
+Examples : 
+        
+    >> wt = WeightedTable.new.from_flat_table( :foo, :foo, :bar ]
+    >> wt.sample
     # This ensure that you will get 66% foo and 33% bar
-    
+               
 ### Saving and loading
     
     # You can save your builded table for future usage

@@ -14,6 +14,15 @@ class WeightedTable
   # Example : [ [ 2, :foo ], [ 1, :bar ] ]
   #
   # @return [WeightedTable] the current WeightedTable
+  def self.from_weighted_table( table )
+    WeightedTable.new.from_weighted_table( table )
+  end
+
+  # Load a WeightedTable with data
+  # Data format must be : [ [ weight, data ], [ weight, data ], ... ]
+  # Example : [ [ 2, :foo ], [ 1, :bar ] ]
+  #
+  # @return [WeightedTable] the current WeightedTable
   def from_weighted_table( table )
     raise 'Table must contain at least one element' if table.empty?
     base = BASE_WEIGHT
@@ -31,7 +40,7 @@ class WeightedTable
   # Example : [ :foo, :foo, :bar ]
   #
   # @return [WeightedTable] the current WeightedTable
-  def from_flat_table( table )
+  def self.from_flat_table( table )
     from_weighted_table( table.group_by{ |e| e }.map{ |k, v| [ v.count, k ] } )
   end
 
