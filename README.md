@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/czuger/hazard/badges/gpa.svg)](https://codeclimate.com/github/czuger/hazard)
 [![Test Coverage](https://codeclimate.com/github/czuger/hazard/badges/coverage.svg)](https://codeclimate.com/github/czuger/hazard/coverage)
 
-Hazard is a very simple dice library for ruby (see [usage](#usage)).
+Hazard is a very simple dice library for ruby (see [usage](##Basic Usage)).
 
 ## Installation
 
