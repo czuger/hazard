@@ -8,8 +8,17 @@
 Hazard is a very simple dice library for ruby.
 
 1. [Basic Usage](#basic-usage)
-  1. [Roll a simple die](#roll-a-simple-die)
-1. [Basic Usage](#basic-usage)
+    1. [Roll a simple die](#roll-a-simple-die)
+    1. [Roll multiple dice](#roll-multiple-dice)
+1. [Advanced Usage](#advanced-usage)
+    1. [Roll dice and get the details](#roll-dice-and-get-the-details)
+    1. [Some real cases](#some-real-cases)
+1. [Weighted Tables](#weighted-Tables)
+    1. [If you have the weights](#if-you-have-the-weights)
+    1. [If you don't have the weights (or are to lazy to get them)](#if-you-dont-have-the-weights-or-are-to-lazy-to-get-them)
+    1. [Saving and loading](#saving-and-loading)    
+    
+Roll dice and get the details
 
 ## Installation
 
@@ -144,7 +153,7 @@ Example : if you have two time foo and one time bar in your table.
     
     # Note that you have to instantiate your object before loading it.
     
-### If you don't have the weights (ore are to lazy to get them)
+### If you don't have the weights (or are to lazy to get them)
     
     # You can create your WeightedTable and let it compute the weights
     >> wt = WeightedTable.new.from_flat_table( :foo, :foo, :bar ]
