@@ -51,7 +51,7 @@ class HazardTest < Minitest::Test
 
     wt = WeightedTable.from_weighted_table [ [ 2, :foo ], [ 1, :bar ] ]
     results = { foo: 0, bar: 0 }
-    1.upto(100).each do
+    1.upto(250).each do
       results[ wt.sample ] += 1
     end
 
