@@ -39,10 +39,10 @@ class HazardTest < Minitest::Test
     assert_equal :bar, WeightedTable.from_flat_table(  [ :foo, :foo, :foo, :bar ] ).sample
 
     Kernel.stubs( :rand ).returns( 5 )
-    assert_raises do
+    assert_raises 'Rand not in key range' do
       WeightedTable.from_weighted_table []
     end
-    assert_raises do
+    assert_raises 'Rand not in key range' do
       WeightedTable.from_flat_table []
     end
   end

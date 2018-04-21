@@ -4,10 +4,18 @@ require_relative 'weighted_table'
 class Hazard
 
   def self.method_missing( method_name )
-
     # Transform the method_name to string
     method_name = method_name.to_s
+    self.roll_dice( method_name )
+  end
 
+  def self.from_string( dice_string )
+    roll_dice( dice_string )
+  end
+
+  private
+
+  def self.roll_dice( method_name )
     # Parse the method name to get how many dice and what size of dice was required
     dice_match = method_name.to_s.match( /(d|r|m|s)?(\d*)d(\d+)/ )
     # Raise an error if match fail
@@ -32,7 +40,6 @@ class Hazard
 
     # Return a RolledDice otherwise
     RolledDice.new( rolls )
-
   end
 
 end

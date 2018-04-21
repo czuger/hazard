@@ -16,6 +16,7 @@ Hazard is a very simple dice library for ruby that allows you to :
     1. [Roll multiple dice](#roll-multiple-dice)
 1. [Advanced Usage](#advanced-usage)
     1. [Roll dice and get the details](#roll-dice-and-get-the-details)
+    1. [Roll dice from string input](#roll-dice-from-string-input)    
     1. [Some real cases](#some-real-cases)
 1. [Weighted Tables](#weighted-tables)
     1. [If you have the weights](#if-you-have-the-weights)
@@ -27,7 +28,7 @@ Hazard is a very simple dice library for ruby that allows you to :
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hazard', '~> 1.1.0'
+gem 'hazard', '~> 1.2.0'
 ```
 
 And then execute:
@@ -116,6 +117,16 @@ Examples :
     >> Hazard.s2d6
     => #<RolledDice:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
+### Roll dice from string input
+
+    >> Hazard.from_string( 's<m>d<n>' )    # where m and n are numbers
+    => Roll m n-sided dice and return a RolledDice object
+
+Examples : 
+         
+    >> Hazard.from_string( 'r2d6' )
+    => 3     
+        
 ### Some real cases
          
 Assuming you are playing DD Next

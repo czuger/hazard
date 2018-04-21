@@ -62,15 +62,6 @@ class WeightedTable
     raise 'Rand not in key range'
   end
 
-  # Load a WeightedTable with data
-  # Data format must be : [ data, data, data ]
-  # Example : [ :foo, :foo, :bar ]
-  #
-  # @return [WeightedTable] the current WeightedTable
-  def from_flat_table( table )
-    from_weighted_table( table.group_by{ |e| e }.map{ |k, v| [ v.count, k ] } )
-  end
-
   # Save the table to a file
   # @param filename [String] the filename where to save the table
   def to_file( filename )
