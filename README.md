@@ -29,7 +29,7 @@ If needed :
 
 ## Usage
 
-**Roll a simple die**
+### Roll a simple die
 
     >> Hazard.d<n>        # where n is an number
     => Roll a n-sided die
@@ -46,7 +46,7 @@ Examples :
     => 38
      
     
-**Roll multiple dice**
+### Roll multiple dice
 
     >> Hazard.r<m>d<n>    # where m and n are numbers
     => Roll m n-sided dice and return the sum
@@ -73,7 +73,7 @@ Examples :
     => 8      
     
         
-**Roll dice and get the details**
+### Roll dice and get the details
 
     >> Hazard.s<m>d<n>    # where m and n are numbers
     => Roll m n-sided dice and return a RolledDice object
@@ -100,7 +100,7 @@ Examples :
     >> Hazard.s2d6
     => #<RolledDice:0x007f62e55a0010 @rolls=[1, 6], @result=7>
     
-**Some real cases**
+### Some real cases
          
     # Assuming you are playing DD Next
     
@@ -120,7 +120,9 @@ Examples :
     # Should you have the Elemental Adept feat, which mean that you treat all 1 as 2
     # If you cast a fireball, this will do the trick : 
     >> Hazard.s8d6.rolls.map{ |d| d == 1 ? 2 : d }.reduce(:+)
-    => 24                   
+    => 24   
+                    
+###                     
 
 ## Contributing
 

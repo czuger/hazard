@@ -59,4 +59,15 @@ class HazardTest < Minitest::Test
     assert_in_delta 0.66, (results[:foo]*0.01), 0.1
   end
 
+  def test_save_and_load
+    wt = WeightedTable.new.from_weighted_table [ [ 2, :foo ], [ 1, :bar ] ]
+    wt.to_file( 'wt.yaml' )
+    wt = nil
+    wt = WeightedTable.from_file( 'wt.yaml' )
+    Kernel.stubs( :rand ).returns( 1 )
+    assert_equal :foo, wt.sample
+    assert_equal :foo, wt.sample
+    `rm wt.yaml`
+  end
+
 end
