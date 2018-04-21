@@ -51,12 +51,15 @@ class HazardTest < Minitest::Test
 
     wt = WeightedTable.from_weighted_table [ [ 2, :foo ], [ 1, :bar ] ]
     results = { foo: 0, bar: 0 }
-    1.upto(250).each do
+
+    rounds = 1000
+
+    1.upto(rounds).each do
       results[ wt.sample ] += 1
     end
 
-    assert_in_delta 0.33, (results[:bar]*0.01), 0.1
-    assert_in_delta 0.66, (results[:foo]*0.01), 0.1
+    assert_in_delta 0.33, (results[:bar].to_f/rounds), 0.1
+    assert_in_delta 0.66, (results[:foo].to_f/rounds), 0.1
   end
 
   def test_save_and_load
