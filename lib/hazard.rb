@@ -1,4 +1,5 @@
 require_relative 'rolled_dice'
+require_relative 'weighted_table'
 
 class Hazard
 

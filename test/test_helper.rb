@@ -7,4 +7,5 @@ require 'hazard'
 
 require 'minitest/autorun'
 require 'mocha/mini_test'
+require 'pp'
 
