@@ -7,6 +7,7 @@
 
 Hazard is a very simple dice library for ruby.
 
+1. [Installation](#installation)
 1. [Basic Usage](#basic-usage)
     1. [Roll a simple die](#roll-a-simple-die)
     1. [Roll multiple dice](#roll-multiple-dice)
