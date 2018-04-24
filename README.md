@@ -20,7 +20,7 @@ Hazard is a very simple dice library for ruby that allows you to :
     1. [Some real cases](#some-real-cases)
 1. [Weighted Tables](#weighted-tables)
     1. [If you have the weights](#if-you-have-the-weights)
-    1. [If you don't have the weights (or are to lazy to get them)](#if-you-dont-have-the-weights-or-are-to-lazy-to-get-them)
+    1. [If you don't have the weights (or are too lazy to get them)](#if-you-dont-have-the-weights-or-are-too-lazy-to-get-them)
     1. [Saving and loading](#saving-and-loading)    
     
 ## Installation
