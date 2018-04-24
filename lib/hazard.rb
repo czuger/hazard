@@ -1,20 +1,38 @@
 require_relative 'rolled_dice'
 require_relative 'weighted_table'
 
+# This class roll the dice.
+#
+# @author Cédric ZUGER
 class Hazard
 
+  # Regular entry point. This is where you will go when you call Hazard.d6 for instance.
+  #
+  # @param method_name [String] the description of the dice. See help for detail.
+  #
+  # @return [Object] if detail has been asked, it will return a [RolledDice] object, otherwise it will return an [Integer] containing the sum of the dice.
   def self.method_missing( method_name )
     # Transform the method_name to string
     method_name = method_name.to_s
     self.roll_dice( method_name )
   end
 
+  # From string entry point, in case you have your dice description in a database for instance.
+  #
+  # @param dice_string [String] the description of the dice. See help for detail.
+  #
+  # @return [Object] if detail has been asked, it will return a [RolledDice] object, otherwise it will return an [Integer] containing the sum of the dice.
   def self.from_string( dice_string )
     roll_dice( dice_string )
   end
 
   private
 
+  # Roll dice according to method name
+  #
+  # @param method_name [String] the description of the dice. See help for detail.
+  #
+  # @return [Object] if detail has been asked, it will return a [RolledDice] object, otherwise it will return an [Integer] containing the sum of the dice.
   def self.roll_dice( method_name )
     # Parse the method name to get how many dice and what size of dice was required
     dice_match = method_name.to_s.match( /(d|r|m|s)?(\d*)d(\d+)/ )

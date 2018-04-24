@@ -1,5 +1,8 @@
 require 'yaml'
 
+# This class contains objects and associate weights to them. So that you can sample the object according to their weights.
+#
+# @author Cédric ZUGER
 class WeightedTable
 
   BASE_WEIGHT = 1
