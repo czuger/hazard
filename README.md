@@ -151,8 +151,7 @@ Assuming you are playing DD Next
         
 ## Weighted Tables
 
-Weighted tables are object that allow to get weighted random. 
-Example : if you have two time foo and one time bar in your table.
+Weighted tables are object that allow to get weighted random.
  
 ### If you have the weights
 
