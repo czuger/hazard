@@ -163,7 +163,7 @@ Weighted tables are object that allow to get weighted random.
     
 Examples : 
 
-    >> wt = WeightedTable.new.from_weighted_table( [ 2, :foo ], [ 1, :bar ] ]
+    >> wt = WeightedTable.from_weighted_table( [ 2, :foo ], [ 1, :bar ] ]
     >> wt.sample
     # This ensure that you will get 66% foo and 33% bar
     
@@ -178,7 +178,7 @@ Examples :
         
 Examples : 
         
-    >> wt = WeightedTable.new.from_flat_table( :foo, :foo, :bar ]
+    >> wt = WeightedTable.from_flat_table( :foo, :foo, :bar ]
     >> wt.sample
     # This ensure that you will get 66% foo and 33% bar
                
