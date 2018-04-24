@@ -84,4 +84,10 @@ class HazardTest < Minitest::Test
     `rm wt.yaml`
   end
 
+  def test_out_of_range
+    Kernel.stubs( :rand ).returns( 99 )
+    assert_raises do
+      WeightedTable.from_weighted_table( [ [ 3, :foo ], [ 1, :bar ], [ 1, :foobar ] ] ).sample
+    end
+  end
 end
