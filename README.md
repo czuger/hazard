@@ -188,7 +188,9 @@ Examples :
     >> wt.to_file( filename )
     
     # And load it
-    >> wt = WeightedTable.from_file( filename )   
+    >> wt = WeightedTable.from_file( filename )  
+    
+    # Note : backup format is YAML
                                       
 ## Contributing
 
