@@ -168,7 +168,7 @@ Examples :
     # This ensure that you will get 66% foo and 33% bar
     
     
-### If you don't have the weights (or are to lazy to get them)
+### If you don't have the weights (or are too lazy to get them)
     
     >> wt = WeightedTable.from_flat_table( <object1>, <object1>, <object2>, ... ]
     # Create a weighted table storing objects computing the weight of the objects according to theire occurences
