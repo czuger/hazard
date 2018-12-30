@@ -6,6 +6,8 @@ require_relative 'weighted_table'
 # @author Cédric ZUGER
 class Hazard
 
+  DICE_NAME_REGEXP = /(d|r|m|s)?(\d*)d(\d+)/.freeze
+
   # Regular entry point. This is where you will go when you call Hazard.d6 for instance.
   #
   # @param method_name [String] the description of the dice. See help for detail.
@@ -26,6 +28,11 @@ class Hazard
     roll_dice( dice_string )
   end
 
+  # Hook the method_missing
+  def respond_to_missing?(method_name, include_private = false)
+    method_name.to_s =~ DICE_NAME_REGEXP || super
+  end
+
   private
 
   # Roll dice according to method name
@@ -35,9 +42,7 @@ class Hazard
   # @return [Object] if detail has been asked, it will return a [RolledDice] object, otherwise it will return an [Integer] containing the sum of the dice.
   def self.roll_dice( method_name )
     # Parse the method name to get how many dice and what size of dice was required
-    dice_match = method_name.to_s.match( /(d|r|m|s)?(\d*)d(\d+)/ )
-    # Raise an error if match fail
-    raise "Method mising : #{method_name}" unless dice_match
+    dice_match = method_name.to_s.match DICE_NAME_REGEXP
 
     # Get the roll type
     roll_type = dice_match[1]

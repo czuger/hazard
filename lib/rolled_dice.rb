@@ -8,7 +8,7 @@ class RolledDice
   # Create a RolledDice object
   #
   # @param rolls [Array] an array of integer containing the dice rolls.
-  def initialize( rolls )
+  def initialize(rolls)
     @rolls = rolls
     @result = rolls.reduce(:+)
   end
@@ -18,7 +18,7 @@ class RolledDice
   # @param rolled_dice [RolledDice] the other RolledDice to compare
   #
   # @return [Boolean] the result of the comparison
-  def ==( rolled_dice )
+  def ==(rolled_dice)
     @rolls == rolled_dice.rolls && @result == rolled_dice.result
   end
 
