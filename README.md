@@ -88,6 +88,20 @@ Examples :
     >> Hazard.d2d6
     => 8      
     
+### Lucky
+
+Some times, you just need to test an unlikely case. Lucky roll a die and return true if you rolled the highest value.
+ 
+Examples : 
+   
+    >> Hazard.lucky?( 6 )
+    => true
+    # Means that you rolled 6
+     
+    >> Hazard.lucky?( 6 )
+    => false
+    # Means that you rolled something else than 6
+        
 ## Advanced Usage
         
 ### Roll dice and get the details

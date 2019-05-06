@@ -14,9 +14,13 @@ class Hazard
   #
   # @return [Object] if detail has been asked, it will return a [RolledDice] object, otherwise it will return an [Integer] containing the sum of the dice.
   def self.method_missing( method_name )
-    # Transform the method_name to string
     method_name = method_name.to_s
-    self.roll_dice( method_name )
+
+    if method_name =~ DICE_NAME_REGEXP
+      roll_dice( method_name )
+    else
+      super
+    end
   end
 
   # From string entry point, in case you have your dice description in a database for instance.
@@ -29,8 +33,17 @@ class Hazard
   end
 
   # Hook the method_missing
-  def respond_to_missing?(method_name, include_private = false)
+  def self.respond_to_missing?(method_name, include_private = false)
     method_name.to_s =~ DICE_NAME_REGEXP || super
+  end
+
+  # Roll a dice and return true if you rolled the highest number
+  #
+  # @param dice [Integer] the dice you want to roll.
+  #
+  # @return [Boolean] true if you scored the highest number, false otherwise.
+  def self.lucky?( dice )
+    roll_dice( "d#{dice}" ) == dice
   end
 
   private
@@ -46,23 +59,26 @@ class Hazard
 
     # Get the roll type
     roll_type = dice_match[1]
-    splited_result = true if roll_type == 's'
+    splitted_result = true if roll_type == 's'
 
-    # Get the dice amount
-    dice_amount = dice_match[2].to_i
-    # If no amount is given then the amount is 1
-    dice_amount = 1 if dice_amount == 0
     # Get the type of dice
     dice_type = dice_match[3].to_i
 
     # Rolls the dice
-    rolls = ( 1..dice_amount ).map{ Kernel.rand( 1..dice_type ) }
+    rolls = ( 1..dice_amount(dice_match) ).map{ Kernel.rand( 1..dice_type ) }
 
     # Unless splitted_result was requested, return the sum of the rolled dice
-    return rolls.reduce(:+) unless splited_result
+    return rolls.reduce(:+) unless splitted_result
 
     # Return a RolledDice otherwise
     RolledDice.new( rolls )
+  end
+
+  def self.dice_amount( dice_match )
+    # Get the dice amount
+    dice_amount = dice_match[2].to_i
+    # If no amount is given then the amount is 1
+    dice_amount.zero? ? 1 : dice_amount
   end
 
 end

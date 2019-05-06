@@ -34,5 +34,26 @@ class HazardTest < Minitest::Test
 
   end
 
+  def test_lucky
+    total = 0
+    hits = 0
+
+    1.upto(1000).each do
+      total += 1
+      hits += 1 if Hazard.lucky?( 6 )
+    end
+
+    assert_in_delta hits.to_f/total, 1.0/6, 1.0/10
+  end
+
+  def test_method_missing
+    assert Hazard.respond_to?(:d6)
+    refute Hazard.respond_to?(:foo)
+
+    assert_raises do
+      Hazard.foo
+    end
+  end
+
 
 end
