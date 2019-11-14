@@ -5,11 +5,14 @@ require 'yaml'
 # @author Cédric ZUGER
 class WeightedTable
 
-  BASE_WEIGHT = 1
+  BASE_WEIGHT = 0
 
-  def initialize
-    @weights = {}
+	# Initialize a WeightedTable
+	# setting floating_points to true indicate that you will work with floating points rather than integers.
+  def initialize( floating_points: false )
+    @weights = []
     @max_weight = BASE_WEIGHT
+		@floating_points = floating_points
   end
 
   # Load a WeightedTable with data
@@ -28,13 +31,23 @@ class WeightedTable
   # @return [WeightedTable] the current WeightedTable
   def from_weighted_table( table )
     raise 'Table must contain at least one element' if table.empty?
+
+		# We may call this method many time for an existing object, so we must clear it
+		@weights.clear
+
     base = BASE_WEIGHT
-    table.each do |t|
-      w = base+t[0]
+		w = nil
+
+    table.each do |weight, data|
+      w = base + weight
+			@weights << [base, w, data]
       base = w
-      @weights[ w ] = t[1]
-      @max_weight = [ @max_weight, w-1 ].max
-    end
+		end
+
+		@max_weight = w
+
+		# p @weights, @max_weight
+
     self
   end
 
@@ -51,16 +64,19 @@ class WeightedTable
   #
   # @return [Object] a random object given at the building of the table.
   def sample
-    r = Kernel.rand( 1..@max_weight )
-    keys = @weights.keys.sort
 
-    low_mark = BASE_WEIGHT
+		# ... means that @max_weight is excluded
+		if @floating_points
+			r = Kernel.rand( 0.0...@max_weight.to_f )
+		else
+			r = Kernel.rand( 0...@max_weight )
+		end
 
-    until keys.empty?
-      high_mark = keys.shift
-      return @weights[high_mark] if r >= low_mark && r < high_mark
-      low_mark = high_mark
-    end
+		# p r
+
+    @weights.each do |base_weight, max_weight, data|
+			return data if r >= base_weight && r < max_weight
+		end
 
     raise 'Rand not in key range'
   end
