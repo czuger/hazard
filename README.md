@@ -28,7 +28,7 @@ Hazard is a very simple dice library for ruby that allows you to :
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hazard', '~> 1.3', '>= 1.3.1'
+gem 'hazard', '>= 1.3.1'
 ```
 
 And then execute:
