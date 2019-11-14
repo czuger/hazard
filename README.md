@@ -28,7 +28,7 @@ Hazard is a very simple dice library for ruby that allows you to :
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'hazard', '~> 1.2'
+gem 'hazard', '~> 1.3', '>= 1.3.1'
 ```
 
 And then execute:
@@ -195,6 +195,21 @@ Examples :
     >> wt = WeightedTable.from_flat_table( :foo, :foo, :bar ]
     >> wt.sample
     # This ensure that you will get 66% foo and 33% bar
+    
+### Weighted tables can also be used with floating points numbers
+
+    >> wt = WeightedTable.new( floating_points: true )
+    >> wt.from_weighted_table( [ <weight1>, <object1> ], [ <weight2>, <object2> ], ... ]
+    # Create a weighted table storing objects according to theire weights
+    
+    >> wt.sample
+    # Return weighted random object
+    
+Examples : 
+
+    >> wt = WeightedTable.new( floating_points: true )
+    >> wt.from_weighted_table( [ 2.6, :foo ], [ 1.5, :bar ] ]
+    >> wt.sample
                
 ### Saving and loading
     
