@@ -16,6 +16,7 @@ class HazardTest < Minitest::Test
 
     assert_equal RolledDice.new([6, 6 ] ), Hazard.s2d6
 
+    refute Hazard.s0d6
   end
 
   def test_dice_from_string
@@ -32,6 +33,7 @@ class HazardTest < Minitest::Test
 
     assert_equal RolledDice.new([6, 6 ] ), Hazard.from_string( 's2d6' )
 
+    refute Hazard.from_string( 's0d6' )
   end
 
   def test_lucky

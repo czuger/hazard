@@ -64,21 +64,28 @@ class Hazard
     # Get the type of dice
     dice_type = dice_match[3].to_i
 
-    # Rolls the dice
-    rolls = ( 1..dice_amount(dice_match) ).map{ Kernel.rand( 1..dice_type ) }
+    # In some strange cases the user can request a roll of zero dice.
+    # in this case we return nil.
+    dm = dice_amount(dice_match)
+    if dm > 0
+      # Rolls the dice
+      rolls = ( 1..dice_amount(dice_match) ).map{ Kernel.rand( 1..dice_type ) }
 
-    # Unless splitted_result was requested, return the sum of the rolled dice
-    return rolls.reduce(:+) unless splitted_result
+      # Unless splitted_result was requested, return the sum of the rolled dice
+      return rolls.reduce(:+) unless splitted_result
 
-    # Return a RolledDice otherwise
-    RolledDice.new( rolls )
+      # Return a RolledDice otherwise
+      RolledDice.new( rolls )
+    end
   end
 
   def self.dice_amount( dice_match )
     # Get the dice amount
-    dice_amount = dice_match[2].to_i
+    dice_amount = dice_match[2]
+
     # If no amount is given then the amount is 1
-    dice_amount.zero? ? 1 : dice_amount
+    # But if zero dice is specifically required we respect this choice.
+    dice_amount.empty? ? 1 : dice_amount.to_i
   end
 
 end
