@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HazardTest < Minitest::Test
+class HazardTest < Test::Unit::TestCase
 
   def test_dice
 

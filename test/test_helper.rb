@@ -5,7 +5,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'hazard'
 
-require 'minitest/autorun'
-require 'mocha/minitest'
+# require 'minitest/autorun'
+require 'test/unit'
+require 'mocha/test_unit'
 require 'pp'
 
