@@ -199,7 +199,7 @@ Examples :
 ### Weighted tables can also be used with floating points numbers
 
     >> wt = WeightedTable.new( floating_points: true )
-    >> wt.from_weighted_table( [ <weight1>, <object1> ], [ <weight2>, <object2> ], ... ]
+    >> wt.from_weighted_table( [ <weight1>, <object1> ], [ <weight2>, <object2> ], ... ] )
     # Create a weighted table storing objects according to theire weights
     
     >> wt.sample
@@ -208,7 +208,7 @@ Examples :
 Examples : 
 
     >> wt = WeightedTable.new( floating_points: true )
-    >> wt.from_weighted_table( [ 2.6, :foo ], [ 1.5, :bar ] ]
+    >> wt.from_weighted_table( [ 2.6, :foo ], [ 1.5, :bar ] ] )
     >> wt.sample
                
 ### Saving and loading
